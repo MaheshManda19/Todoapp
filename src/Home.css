@@ -1,0 +1,21 @@
+/* Home.css */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .message{
+    color: black;
+  }
+  
