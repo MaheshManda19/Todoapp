@@ -26,8 +26,8 @@
 }
 
 .login-container input {
-  width: 300px;
-  padding: 10px;
+  width: 250px;
+  padding: 12px;
   margin-bottom: 10px;
   border-radius: 30px;
   border: 1px solid #ccc;
@@ -46,6 +46,10 @@
 /* Optional: Center the form horizontally on larger screens */
 @media (min-width: 768px) {
   .form {
-    width: 400px;
+    width: 321px;
+    height: 36vh;
+    box-shadow: black;
+    border: light black;
   }
+
 }

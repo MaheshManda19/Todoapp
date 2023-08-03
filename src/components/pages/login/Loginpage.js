@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Loginpage.css';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../common/Header';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -25,9 +24,10 @@ const LoginPage = () => {
     <div className='login-container'>
       <div className='form'>
         <h2>Login</h2>
-        <input
+        
+<input
           type="text"
-          placeholder="Email"
+          placeholder="Name"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
