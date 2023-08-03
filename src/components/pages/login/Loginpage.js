@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Loginpage.css';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
+import Header from '../../common/Header';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
