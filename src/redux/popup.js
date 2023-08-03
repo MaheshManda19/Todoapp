@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AddTodoAction, RemoveTodoAction } from "./action";
-import "./popup.css";
+import "./Popup.css";
 
 function TaskPopup({ showPopup, handleAddCard, userIdentifier }) {
   const [dash, setDash] = useState({

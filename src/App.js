@@ -1,7 +1,7 @@
 import {  BrowserRouter as Router, Routes, Route,Link, BrowserRouter }   
 from 'react-router-dom';  
-import Home from "./Home";
-import LoginPage from "./loginpage";
+import Home from "./components/Home";
+import LoginPage from './components/Loginpage';
 import Dash from './redux/Dash';
 
 function App(){
@@ -18,7 +18,7 @@ function App(){
     </BrowserRouter>
     </>
     
-   
+
   );
 }
 

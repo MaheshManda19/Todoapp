@@ -1,8 +1,5 @@
-// Home.js
-
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
-import Dash from './redux/Dash';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
@@ -11,12 +8,17 @@ const Home = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
+    // Check if the user is logged in by retrieving user information from localStorage
     const user = JSON.parse(localStorage.getItem('user'));
-    const userIdentifier = user.email;
-
-    const tasks = JSON.parse(localStorage.getItem(userIdentifier));
-    setTodos(tasks || []);
-  }, []);
+    if (!user) {
+      // User is not logged in, redirect to the login page
+      navigate('/');
+    } else {
+      const userIdentifier = user.email;
+      const tasks = JSON.parse(localStorage.getItem(userIdentifier));
+      setTodos(tasks || []);
+    }
+  }, [navigate]);
 
   const handleTodoClick = (todoId) => {
     console.log(`Clicked on todo with ID: ${todoId}`);
@@ -37,8 +39,8 @@ const Home = () => {
                 className="todo-item"
                 onClick={() => handleTodoClick(todo.title)}
               >
-                <h4>{todo.title}</h4>
-                <h4>{todo.description}</h4>
+                <h4> Title: {todo.title}</h4>
+                <h4> Description: {todo.description}</h4>
               </li>
             ))}
           </ul>
