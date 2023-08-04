@@ -9,9 +9,6 @@ const LoginPage = () => {
 
   const handleLogin = () => {
     if (email && password) {
-      // Perform your actual login/authentication logic here
-      // For demonstration purposes, let's assume the user is logged in
-      // and store the user information in localStorage
       localStorage.setItem('user', JSON.stringify({ email, password }));
       alert('Logged in successfully!');
       navigate('/Home');

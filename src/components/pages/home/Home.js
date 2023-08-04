@@ -11,8 +11,10 @@ const Home = () => {
     // Check if the user is logged in by retrieving user information from localStorage
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
+      
       // User is not logged in, redirect to the login page
       navigate('/');
+    
     } else {
       const userIdentifier = user.email;
       const tasks = JSON.parse(localStorage.getItem(userIdentifier));
