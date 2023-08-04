@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import TaskPopup from "./Popup";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
-import { AddTodoAction, RemoveTodoAction } from "./action";
 import "./Dash.css";
 import Header from "../components/common/Header";
 
