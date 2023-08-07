@@ -1,7 +1,7 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AddTodoAction } from "./action";
-import "./Popup.css";
+import { AddTodoAction } from "../redux/action";
+import "./popup.css";
 
 function TaskPopup({ showPopup, handleAddCard, userIdentifier }) {
   const [dash, setDash] = useState({
@@ -21,6 +21,13 @@ function TaskPopup({ showPopup, handleAddCard, userIdentifier }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Check if both title and description are not empty
+    if (!dash.title || !dash.description) {
+      alert("Title and description cannot be empty!");
+      return;
+    }
+
     dispatch(AddTodoAction(dash));
 
     localStorage.setItem(userIdentifier, JSON.stringify(newData));

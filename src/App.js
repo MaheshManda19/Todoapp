@@ -1,8 +1,8 @@
 import {  BrowserRouter as Router, Routes, Route,Link, BrowserRouter }   
 from 'react-router-dom';  
-import Home from "./components/pages/home/Home";
-import LoginPage from './components/pages/login/Loginpage';
-import Dash from './redux/Dash';
+import LoginPage from './pages/login/Loginpage';
+import Dash from './components/Dash'; 
+import Home from './pages/home/Home'
 
 function App(){
   return (
