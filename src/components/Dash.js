@@ -39,9 +39,21 @@ function Dash(props) {
   const handleRemoveTodo = (id) => {
     const updatedDashDeatils = todo.filter((t) => t.title !== id);
     setTodo(updatedDashDeatils);
+    removeItemFromLocalStorage(id);
+
 
 
   };
+  const removeItemFromLocalStorage = (id) => {
+    const key = userIdentifier;
+    const data = JSON.parse(localStorage.getItem(key));
+  
+    if (Array.isArray(data)) {
+      const updatedData = data.filter((item) => item.title !== id);
+      localStorage.setItem(key, JSON.stringify(updatedData));
+    }
+  };
+
 
 
   const dragStart = (e, taskId) => {
