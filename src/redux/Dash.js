@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import TaskPopup from "./Popup";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import "./Dash.css";
 import Header from "../components/common/Header";
 
@@ -18,7 +18,6 @@ function Dash(props) {
   const Dash = useSelector((state) => state.Dash);
   const { dashdeatils } = Dash;
 
-  const dispatch = useDispatch();
 
   const userIdentifier = user.email;
   console.log(userIdentifier,"gfhfg")
@@ -51,15 +50,6 @@ function Dash(props) {
 
   };
 
-  const removeItemFromLocalStorage = (id) => {
-    const key = userIdentifier;
-    const data = JSON.parse(localStorage.getItem(key));
-
-    if (Array.isArray(data)) {
-      const updatedData = data.filter((item) => item.title !== id);
-      localStorage.setItem(key, JSON.stringify(updatedData));
-    }
-  };
 
   const dragStart = (e, taskId) => {
     console.log("Drag-Started ID ", taskId);
@@ -136,7 +126,6 @@ const dropInProgress = (e) => {
       setTested([...tested, draggedTaskCompleted]);
     }
   };
-  const tododata =  JSON.parse(localStorage.getItem(userIdentifier));
 
   return (
     <>
