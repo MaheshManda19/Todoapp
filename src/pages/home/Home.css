@@ -1,21 +1,25 @@
 /* Home.css */
+.todos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Start items from the left */
+  align-items: flex-start; /* Align items at the top of the container */
+}
 
-ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .todo-item {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 300px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .message{
-    color: black;
-  }
-  
+.todo-element {
+  padding: 20px;
+  width: 151px;
+  box-shadow: 5px 0px 5px rgba(1, 1, 1, 0.2); /* Adding box shadow */
+}
+
+.todo-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  min-width: calc(33.33% - 20px); /* 3 items per row, minus margins */
+  flex: 1; /* Distribute available space evenly among items */
+  text-align: center;
+  cursor: pointer;
+}

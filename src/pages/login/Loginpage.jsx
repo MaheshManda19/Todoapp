@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Loginpage.css";
 import { useNavigate } from "react-router-dom";
+import { ADMIN_USERNAME, ADMIN_PASSWORD } from "../../constants/Userdetails";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -8,10 +9,12 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (email && password) {
+    if (email === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       localStorage.setItem("user", JSON.stringify({ email, password }));
       alert("Logged in successfully!");
       navigate("/Home");
+    } else if (email && password) {
+      alert("Invalid credentials. Please try again.");
     } else {
       alert("Please enter both email and password.");
     }

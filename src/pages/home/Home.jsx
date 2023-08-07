@@ -11,10 +11,8 @@ const Home = () => {
     // Check if the user is logged in by retrieving user information from localStorage
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
-      
       // User is not logged in, redirect to the login page
       navigate('/');
-    
     } else {
       const userIdentifier = user.email;
       const tasks = JSON.parse(localStorage.getItem(userIdentifier));
@@ -29,16 +27,15 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div style={{ margin: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="todo-container">
         <h2>Your Todo Items:</h2>
         {todos.length === 0 ? (
           <p className='message'>No todos found. Add some todos on the dashboard.</p>
         ) : (
-          <ul>
+          <ul className='todos'>
             {todos.map((todo) => (
-              <li
+              <li className='todo-element'
                 key={todo.title}
-                className="todo-item"
                 onClick={() => handleTodoClick(todo.title)}
               >
                 <h4> Title: {todo.title}</h4>
