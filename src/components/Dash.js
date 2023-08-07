@@ -30,14 +30,7 @@ function Dash(props) {
     setTodo(tasks || []);
   }, [dashdeatils]);
 
-  useEffect(() => {
-    localStorage.setItem(userIdentifier, JSON.stringify(todo));
-  }, [todo, dashdeatils]);
 
-  // Save the initial tasks to local storage on component mount
-  useEffect(() => {
-    localStorage.setItem(userIdentifier, JSON.stringify(todo));
-  }, []);
 
   const handleAddCard = () => {
     setShowPopup(!showPopup);
