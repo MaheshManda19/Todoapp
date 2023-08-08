@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TaskPopup from "./Popup";
 import { useSelector } from "react-redux";
 import "./Dash.css";
-import Header from "../common/Header";
+import Header from "./Header";
 
 function Dash(props) {
   const [showPopup, setShowPopup] = useState(false);

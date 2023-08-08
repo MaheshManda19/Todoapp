@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Loginpage.css";
 import { useNavigate } from "react-router-dom";
-import { ADMIN_USERNAME, ADMIN_PASSWORD } from "../../constants/Userdetails";
+import { ADMIN_USERNAME, ADMIN_PASSWORD } from "../../common/constants/Userdetails";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
