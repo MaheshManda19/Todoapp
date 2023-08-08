@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from "react";
 import TaskPopup from "./Popup";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./Dash.css";
 import Header from "../common/Header";
 
@@ -11,17 +10,14 @@ function Dash(props) {
   const [completed, setCompleted] = useState([]);
   const [tested, setTested] = useState([]);
 
-  
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  console.log(user,"new user")
+  console.log(user, "new user");
   const Dash = useSelector((state) => state.Dash);
   const { dashdeatils } = Dash;
 
-
   const userIdentifier = user.email;
-  console.log(userIdentifier,"gfhfg")
-
+  console.log(userIdentifier, "gfhfg");
 
   const [todo, setTodo] = useState([]);
 
@@ -29,8 +25,6 @@ function Dash(props) {
     const tasks = JSON.parse(localStorage.getItem(userIdentifier));
     setTodo(tasks || []);
   }, [dashdeatils]);
-
-
 
   const handleAddCard = () => {
     setShowPopup(!showPopup);
@@ -40,21 +34,16 @@ function Dash(props) {
     const updatedDashDeatils = todo.filter((t) => t.title !== id);
     setTodo(updatedDashDeatils);
     removeItemFromLocalStorage(id);
-
-
-
   };
   const removeItemFromLocalStorage = (id) => {
     const key = userIdentifier;
     const data = JSON.parse(localStorage.getItem(key));
-  
+
     if (Array.isArray(data)) {
       const updatedData = data.filter((item) => item.title !== id);
       localStorage.setItem(key, JSON.stringify(updatedData));
     }
   };
-
-
 
   const dragStart = (e, taskId) => {
     console.log("Drag-Started ID ", taskId);
@@ -66,24 +55,22 @@ function Dash(props) {
     console.log("Dragging");
   };
 
-const dropInProgress = (e) => {
-  e.preventDefault();
-  const taskId = e.dataTransfer.getData("taskId");
-  const draggedTaskCompleted = completed.find((t) => t.title === taskId);
-  const draggedTaskTodo = todo.find((t) => t.title === taskId);
+  const dropInProgress = (e) => {
+    e.preventDefault();
+    const taskId = e.dataTransfer.getData("taskId");
+    const draggedTaskCompleted = completed.find((t) => t.title === taskId);
+    const draggedTaskTodo = todo.find((t) => t.title === taskId);
 
-  if (draggedTaskCompleted) {
-    const updatedCompleted = completed.filter((t) => t.title !== taskId);
-    setCompleted(updatedCompleted);
-    setInProgress([...inProgress, draggedTaskCompleted]);
-  } else if (draggedTaskTodo) {
-    const updatedTodo = todo.filter((t) => t.title !== taskId);
-    setTodo(updatedTodo);
-    setInProgress([...inProgress, draggedTaskTodo]);
-    
-  }
-};
-
+    if (draggedTaskCompleted) {
+      const updatedCompleted = completed.filter((t) => t.title !== taskId);
+      setCompleted(updatedCompleted);
+      setInProgress([...inProgress, draggedTaskCompleted]);
+    } else if (draggedTaskTodo) {
+      const updatedTodo = todo.filter((t) => t.title !== taskId);
+      setTodo(updatedTodo);
+      setInProgress([...inProgress, draggedTaskTodo]);
+    }
+  };
 
   const dropCompleted = (e) => {
     e.preventDefault();
